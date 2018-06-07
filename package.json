@@ -1,0 +1,51 @@
+{
+  "name": "book-management-api",
+  "version": "1.0.0",
+  "description": "Book Management API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node -- ./src/server/index",
+    "test": "NODE_ENV=test mocha --require babel-polyfill --require babel-register ./test/**/** --exit",
+    "lint": "eslint",
+    "lint-all": "eslint index.js test/*",
+    "db:migrate": "sequelize db:migrate",
+    "undo:db:migrate": "sequelize db:migrate:undo",
+    "undo:all:migration": "sequelize db:migrate:undo:all",
+    "test:db:migrate": "NODE_ENV=test sequelize db:migrate",
+    "test:db:migrate:undo": "NODE_ENV=test sequelize db:migrate:undo:all"
+  },
+  "keywords": [],
+  "author": "Subair Oyindamola <oyindamola.subair@andela.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "expect": "^23.1.0",
+    "mocha": "^5.2.0",
+    "ng-faker": "^1.0.1",
+    "nodemon": "^1.17.5",
+    "supertest": "^3.1.0"
+  },
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.2",
+    "method-override": "^2.3.10",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.37.10"
+  }
+}
