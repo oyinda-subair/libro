@@ -15,7 +15,7 @@ export const memberEntity = {
   username: randomUsername,
   email: randomEmail,
   password: 'p@ssword1',
-  role: ['member']
+  roles: ['member']
 }
 
 export const adminMemberEntity = {
@@ -24,5 +24,5 @@ export const adminMemberEntity = {
   username: randomUsername,
   email: randomEmail,
   password: 'p@ssword1',
-  role: ['member', 'admin']
+  roles: ['member', 'admin']
 }

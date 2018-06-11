@@ -108,7 +108,7 @@ export default {
         const info = req.body
         return member
           .update({
-            role: member.role.push(info.role) || member.role
+            role: member.roles.push(info.role) || member.roles
           }).then(newMemberDetails => res.status(200).send({
             data: newMemberDetails,
             token: info.username ? tools.token(info) : null,

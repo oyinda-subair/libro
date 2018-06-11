@@ -9,14 +9,16 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true
-      }
+      },
+      field: 'first_name'
     },
     lastName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: true
-      }
+      },
+      field: 'last_name'
     },
     username: {
       type: DataTypes.STRING,
@@ -42,11 +44,13 @@ export default (sequelize, DataTypes) => {
         notEmpty: true
       }
     },
-    role: {
+    roles: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false
     }
   }, {
+    underscored: true,
+    indexes: [{ fields: ['username', 'email', 'roles'] }],
     hooks: {
       beforeCreate: (member) => {
         const salt = bcrypt.genSaltSync();
@@ -62,6 +66,11 @@ export default (sequelize, DataTypes) => {
   });
   Member.associate = (models) => {
     // associations can be defined here
+
+    Member.hasMany(models.Review, {
+      foreignKey: 'memberId',
+      as: 'reviews'
+    });
   };
   return Member;
 };

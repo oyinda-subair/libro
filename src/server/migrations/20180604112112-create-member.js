@@ -1,13 +1,10 @@
-/* eslint arrow-body-style: "off" */
-/* eslint-env es6 */
-
 'use strict';
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize) => { // eslint-disable-line arrow-body-style
     return queryInterface.sequelize
       .query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";')
-      .then(() => {
+      .then(() => { // eslint-disable-line arrow-body-style
         return queryInterface.createTable('Members', {
           id: {
             allowNull: false,
@@ -17,11 +14,13 @@ module.exports = {
           },
           firstName: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: false,
+            field: 'first_name'
           },
           lastName: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: false,
+            field: 'last_name'
           },
           username: {
             type: Sequelize.STRING,
@@ -44,21 +43,21 @@ module.exports = {
               nonEmpty: true
             }
           },
-          role: {
+          roles: {
             type: Sequelize.ARRAY(Sequelize.STRING)
           },
-          createdAt: {
+          created_at: {
             allowNull: false,
             type: Sequelize.DATE
           },
-          updatedAt: {
+          updated_at: {
             allowNull: false,
             type: Sequelize.DATE
           }
         });
       });
   },
-  down: (queryInterface, Sequelize) => {
+  down: (queryInterface, Sequelize) => { // eslint-disable-line arrow-body-style
     return queryInterface.dropTable('Members');
   }
 };

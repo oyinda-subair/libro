@@ -1,7 +1,7 @@
 'use strict';
 
 export default (sequelize, DataTypes) => {
-  const Author = sequelize.define('Author', {
+  const Genre = sequelize.define('Genre', {
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -10,16 +10,14 @@ export default (sequelize, DataTypes) => {
     underscored: true,
     indexes: [{ fields: ['name'] }]
   });
-  Author.associate = (models) => {
+  Genre.associate = (models) => {
     // associations can be defined here
-
-    // TODO fix belongsToMany
-    // Author.belongsToMany(models.Book, {
+    // Genre.belongsToMany(models.Book, {
     //   as: 'books',
     //   through: [models.BookAuthor],
-    //   foreignKey: 'authorId',
+    //   foreignKey: 'genreId',
     //   otherKey: 'bookId'
     // })
   };
-  return Author;
+  return Genre;
 };

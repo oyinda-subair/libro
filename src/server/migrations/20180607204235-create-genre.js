@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => { // eslint-disable-line arrow-body-style
-    return queryInterface.createTable('Authors', {
+    return queryInterface.createTable('Genres', {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -24,6 +24,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => { // eslint-disable-line arrow-body-style
-    return queryInterface.dropTable('Authors');
+    return queryInterface.dropTable('Genres');
   }
 };

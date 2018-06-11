@@ -12,7 +12,8 @@
     "undo:db:migrate": "sequelize db:migrate:undo",
     "undo:all:migration": "sequelize db:migrate:undo:all",
     "test:db:migrate": "NODE_ENV=test sequelize db:migrate",
-    "test:db:migrate:undo": "NODE_ENV=test sequelize db:migrate:undo:all"
+    "test:db:migrate:undo": "NODE_ENV=test sequelize db:migrate:undo:all",
+    "create:migration:file": "sequelize migration:create"
   },
   "keywords": [],
   "author": "Subair Oyindamola <oyindamola.subair@andela.com>",
